@@ -1,0 +1,20 @@
+<div id="<%= dom_id message %>" class="w-full  sm:w-auto my-5 space-y-5">
+<div class="text-white">
+  <%= message.from_user %>
+</div>
+ 
+  <div class="chat chat-start">
+  <div class="chat-bubble chat-bubble-neutral">  <%= message.body %></div>
+  <%= message.created_at.in_time_zone.strftime("%I:%M%P, %B %Y") %>
+
+  
+  </div>
+
+
+
+
+
+</div>
+
+
+

@@ -1,0 +1,15 @@
+<% content_for :title, "Showing chat" %>
+
+<div class="md:w-2/3 w-full">
+  <% if notice.present? %>
+    <p class="py-2 px-3 font-medium rounded-md inline-block" id="notice"><%= notice %></p>
+  <% end %>
+
+
+  <h1 class="text-red-400 font-black text-4xl">  
+  <%=  @chat.name %> 
+  </h1>
+
+<%= turbo_frame_tag :messages, src: chat_messages_path(@chat) %> 
+
+</div>
