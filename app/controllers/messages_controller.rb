@@ -26,7 +26,7 @@ class MessagesController < ApplicationController
 
     respond_to do |format|
       if @message.save
-        AiResponseJob.perform_later(@message.id)
+
         format.html { redirect_to chat_messages_path(@chat), notice: "Message was successfully created." }
         format.json { render :show, status: :created, location: @message }
       else
