@@ -5,6 +5,9 @@
  
   <div class="chat chat-start">
   <div class="chat-bubble chat-bubble-neutral">  <%= message.body %></div>
+  <%= message.created_at.in_time_zone.strftime("%I:%M%P, %B %Y") %>
+
+  
   </div>
 
 
@@ -12,5 +15,6 @@
 
 
 </div>
+
 
 

@@ -1,11 +1,12 @@
 
-<div class="w-full  h-">
+<div class="w-full h-16">
   <% if notice.present? %>
     <p class="py-2 px-3 mb-5 text-green-500 font-medium rounded-md inline-block" id="notice"><%= notice %></p>
   <% end %>
 
 
 <%= turbo_frame_tag :messages do %> 
+  <%= turbo_stream_from @chat, :messages  %>
   <%= turbo_frame_tag :new_message do  %> 
    <div class="flex justify-between items-center">
      <h1 class="font-bold text-4xl">Messages</h1>
@@ -13,9 +14,9 @@
    </div>
  <% end %>
 
-  <div id="messages" class="overflow-y-auto h-50">
+  <div id="chat-message" class="overflow-y-auto h-50 bg-blue-300">
     <% if @messages.any? %>
-      <% @messages.each do |message| %>
+      <% @messages.order(created_at: :desc).each do |message| %>
 
         <div id="messages" data-controller="scroll" class="">
           <%= render message %>
